@@ -7,8 +7,8 @@ except ImportError:
     raise ImportError('Error importing modules. Ensure all packages from ../requirements.txt are installed. Run `pip '
           'install -r requirements.txt` in the terminal to install the packages.')
 
-# Create ../input-files if it does not exist
-input_relative_path = '../input-files'
+# Create ./input-files if it does not exist
+input_relative_path = './input-files'
 input_abspath = os.path.normpath(
     os.path.join(os.path.dirname(__file__), input_relative_path)
 )
@@ -18,7 +18,7 @@ if not os.path.exists(input_abspath):
 
 
 # Model ID
-MODEL_ID = "google/gemma-3n-e4b-it"
+MODEL_ID = "google/gemma-3n-E4B-it"
 FINETUNED_MODEL_ID = "alfredcs/gemma-3N-finetune"
 
 # Create vLLM client
@@ -26,7 +26,7 @@ OPENAI_API_KEY = "EMPTY"
 
 client = OpenAI(
     api_key=OPENAI_API_KEY,
-    base_url="http://mcp1.cavatar.info:8081/v1",
+    base_url="http://video.cavatar.info:8083/v1",
 )
 
 finetuned_client = OpenAI(
