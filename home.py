@@ -1,16 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import sys
-import os
-import io
-import asyncio
 import re
-import json
-from PIL import Image
-import time
 import logging
-from streamlit_pdf_viewer import pdf_viewer
-from configs.utility import *
+from utility import *
 from openai import OpenAI
 from base64 import b64encode
 
