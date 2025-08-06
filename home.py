@@ -150,8 +150,9 @@ with st.sidebar:
         st.divider()
         if st.button("Clear Chat History"):
             st.session_state.messages.clear()
-            st.session_state["messages"] = [
-                {"role": "assistant", "content": "I am your assistant. How can I help today?"}]
+            st.session_state["messages"] = [{"role": "system", "content": "You are a helpful assistant. Please answer the user question accurately and truthfully."}]
+            st.session_state["messages_no_files"] = [{"role": "system", "content": "You are a helpful assistant. Please answer the user question accurately and truthfully."}]
+            st.session_state["displayed_messages"] = [{"role": "assistant", "content": "I am your assistant. How can I help today?"}]
             record_audio = None
             voice_prompt = ""
 
