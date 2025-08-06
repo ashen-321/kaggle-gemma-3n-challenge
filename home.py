@@ -12,6 +12,7 @@ import logging
 from streamlit_pdf_viewer import pdf_viewer
 from configs.utility import *
 from openai import OpenAI
+from base64 import b64encode
 
 file_path = os.path.dirname(__file__)
 input_file_path = os.path.join(file_path, "input-files")
@@ -91,7 +92,6 @@ with st.sidebar:
     # File upload box
     upload_file = st.file_uploader("Upload your image/audio here:", accept_multiple_files=True,
                                    type=["jpg", "jpeg", "png", "webp", "mp3", "wav"])
-    file_url = st.text_input("Or input a valid file URL:", key="file_url", type="default")
 
     # Only update input file directory if something has changed
     if upload_file != last_uploaded_files:
@@ -138,8 +138,8 @@ with st.sidebar:
 
         # Configuration sliders
         temperature = st.number_input("Temperature", min_value=0.0, max_value=1.0, value=0.1, step=0.05)
-        max_tokens = st.number_input("Maximum Output Tokens", min_value=0, value=4096, step=64)
-        top_p = st.number_input("Top_p: The cumulative probability cutoff for token selection", min_value=0.1, value=0.85)
+        max_tokens = st.number_input("Maximum Output Tokens", min_value=0, value=4096, max_value=4096, step=64)
+        top_p = st.number_input("Top_p: The cumulative probability cutoff for token selection", min_value=0.1, value=0.85, max_value = 1.0)
 
         # --- Audio query -----#
         st.divider()
@@ -170,9 +170,11 @@ start_time = time.time()
 
 # Message tracking
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "I am your assistant. How can I help today?"}]
+    st.session_state["messages"] = [{"role": "system", "content": "You are a helpful assistant. Please answer the user question accurately and truthfully."}]
+    st.session_state["messages_no_files"] = [{"role": "system", "content": "You are a helpful assistant. Please answer the user question accurately and truthfully."}]
+    st.session_state["displayed_messages"] = [{"role": "assistant", "content": "I am your assistant. How can I help today?"}]
 
-for msg in st.session_state.messages[1:]:
+for msg in st.session_state.displayed_messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
 # OpenAI Client
@@ -180,32 +182,66 @@ if "openai_client" not in st.session_state:
     st.session_state["openai_client"] = OpenAI()
 
 
-if prompt := st.chat_input():
-    # Override
-    if len(voice_prompt):
+if prompt := st.chat_input() or len(voice_prompt) > 3:
+    prompt_flag = isinstance(prompt, str)
+    
+    # Override query with voice prompt if it is missing
+    if not prompt_flag:
         prompt = voice_prompt
 
-    # Add prompt to messages
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    # Add relevant files to message content
+    message_content = []
+    with_files = False
+    for entry in os.listdir(input_file_path):
+        entry_abspath = os.path.join(input_file_path, entry)
+
+        # Get file as bytes
+        with open(entry_abspath, "rb") as file:
+            file_bytes = b64encode(file.read()).decode('utf-8')
+
+        # Format bytes for OpenAI standard
+        if "image" in entry:
+            file_type = "image_url"
+            file_contents = {"url": f"data:image/jpeg;base64,{file_bytes}"}
+        elif "audio" in entry:
+            # Get file extension
+            _, extension = os.path.splitext(file_abspath)
+            extension = extension[1:]
+            
+            file_type = "input_audio"
+            file_contents = {"data": file_bytes, "format": extension}
+
+        # Add message content based on file type
+        message_content.append({"type": file_type, file_type: file_contents})
+        with_files = True
+
+    # Add prompt to message content
+    message_content.append({"type": "text", "text": prompt})
+
+    # Add message content to messages
+    st.session_state.messages.append({"role": "user", "content": message_content})
+    st.session_state.messages_no_files.append({"role": "user", "content": prompt})
+    st.session_state.displayed_messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
     # Generate response
-    response = st.session_state["openai_client"].chat.completions.create(
-        model=model_id,
-        messages=[
-            {"role": "system",
-             "content": "You are a helpful assistant. Please answer the user question accurately and truthfully. Also please make sure to think carefully before answering"},
-            *st.session_state.messages[1:],
-        ],
-        stream=False,
-        temperature=temperature,
-        max_tokens=max_tokens,
-        top_p=top_p
-    )
-    usages = f'Completion Tokens: {response.usage.completion_tokens}, Prompt Tokens: {response.usage.prompt_tokens}, Total Tokens:{response.usage.total_tokens}'
+    if with_files:
+        response = local_gemma3n_image(message_content, max_tokens)
+    else:
+        response = st.session_state["openai_client"].chat.completions.create(
+            model=model_id,
+            messages=st.session_state.messages_no_files,
+            stream=False,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            top_p=top_p
+        )
+    footer = f'Completion Tokens: {response.usage.completion_tokens}, Prompt Tokens: {response.usage.prompt_tokens}, Total Tokens:{response.usage.total_tokens}'
 
     # Display text and save to messages
     response = response.choices[0].message.content
-    response_formatted = f"{response}\n\n ✒︎***Content created by using:*** {model_id}, Latency: {(time.time() - start_time) * 1000:.2f} ms, {usages}"
+    response_formatted = f"{response}\n\n ✒︎***Content created by using:*** {model_id}, Latency: {(time.time() - start_time) * 1000:.2f} ms, {footer}"
     st.session_state.messages.append({"role": "assistant", "content": response_formatted})
+    st.session_state.messages_no_files.append({"role": "assistant", "content": response_formatted})
+    st.session_state.displayed_messages.append({"role": "assistant", "content": response_formatted})
     st.chat_message("ai", avatar='🤵').write(response_formatted)

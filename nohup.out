@@ -194,3 +194,476 @@ Traceback (most recent call last):
     usages = f'Completion_tokens: {response.usage.completion_tokens}, Prompt_tokens: {response.usage.prompt_tokens}, Total_tokens:{response.usage.total_tokens}'
                                    ^^^^^^^^^^^^^^
 AttributeError: 'str' object has no attribute 'usage'
+2025-08-06 00:43:41.859 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 195, in <module>
+    file_bytes = b64encode(file.read()).decode('utf-8')
+                 ^^^^^^^^^
+NameError: name 'b64encode' is not defined
+2025-08-06 00:43:58.354 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 201, in <module>
+    file_contents = {"url": f"data:image/jpeg;base64,{encoded_bytes}"}
+                                                      ^^^^^^^^^^^^^
+NameError: name 'encoded_bytes' is not defined
+2025-08-06 00:44:17.962 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 214, in <module>
+    message_content.append({"type": "text", "text": query})
+                                                    ^^^^^
+NameError: name 'query' is not defined
+2025-08-06 00:44:31.762 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 221, in <module>
+    response = st.session_state["openai_client"].chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': 'alfredcs/gemma-3N-finetune is not a multimodal model None', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 00:52:36.248 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 224, in <module>
+    response = convert_to_markdown(local_gemma3n_image(message_content, max_token))
+                                   ^^^^^^^^^^^^^^^^^^^
+NameError: name 'local_gemma3n_image' is not defined
+2025-08-06 00:52:57.174 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 224, in <module>
+    response = convert_to_markdown(local_gemma3n_image(message_content, max_token))
+                                                                        ^^^^^^^^^
+NameError: name 'max_token' is not defined
+2025-08-06 00:53:28.136 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 224, in <module>
+    response = convert_to_markdown(local_gemma3n_image(message_content, max_tokens))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 965, in local_gemma3n_image
+    client = OpenAI(
+             ^^^^^^
+NameError: name 'OpenAI' is not defined
+2025-08-06 00:53:54.358 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/pydantic/main.py", line 848, in __getattr__
+    return pydantic_extra[item]
+           ~~~~~~~~~~~~~~^^^^^^
+KeyError: 'split'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 224, in <module>
+    response = convert_to_markdown(local_gemma3n_image(message_content, max_tokens))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 943, in convert_to_markdown
+    lines = text.split('\n')
+            ^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/pydantic/main.py", line 850, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+AttributeError: 'ChatCompletion' object has no attribute 'split'
+2025-08-06 00:58:34.705 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 228, in <module>
+    response = st.session_state["openai_client"].chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': 'alfredcs/gemma-3N-finetune is not a multimodal model None', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 00:59:38.621 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 226, in <module>
+    response = local_gemma3n_image(st.session_state.messages, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 971, in local_gemma3n_image
+    chat_response = client.chat.completions.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': "8 validation errors for ValidatorIterator\n0.ChatCompletionContentPartTextParam.text\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartTextParam.type\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.image_url\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.type\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.input_audio\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.type\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.file\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.type\n  Field required [type=missing, input_value={'role': 'user', 'content...ext': 'what is this?'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing None", 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:00:23.662 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 228, in <module>
+    response = st.session_state["openai_client"].chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': 'Conversation roles must alternate user/assistant/user/assistant/... Conversation roles must alternate user/assistant/user/assistant/...', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:00:44.430 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 228, in <module>
+    response = st.session_state["openai_client"].chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': 'Conversation roles must alternate user/assistant/user/assistant/... Conversation roles must alternate user/assistant/user/assistant/...', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:00:51.414 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 228, in <module>
+    response = st.session_state["openai_client"].chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': 'Conversation roles must alternate user/assistant/user/assistant/... Conversation roles must alternate user/assistant/user/assistant/...', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:01:16.975 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 222, in <module>
+    st.chat_message("user").write(messages)
+                                  ^^^^^^^^
+NameError: name 'messages' is not defined
+2025-08-06 01:01:29.776 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 226, in <module>
+    response = local_gemma3n_image(st.session_state.messages, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 971, in local_gemma3n_image
+    chat_response = client.chat.completions.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': "8 validation errors for ValidatorIterator\n0.ChatCompletionContentPartTextParam.text\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartTextParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.image_url\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.input_audio\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.file\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing None", 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:02:00.700 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 227, in <module>
+    response = local_gemma3n_image(st.session_state.messages, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 971, in local_gemma3n_image
+    chat_response = client.chat.completions.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': "8 validation errors for ValidatorIterator\n0.ChatCompletionContentPartTextParam.text\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartTextParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.image_url\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.input_audio\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.file\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing None", 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:03:43.204 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 226, in <module>
+    response = local_gemma3n_image(st.session_state.messages, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 971, in local_gemma3n_image
+    chat_response = client.chat.completions.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': "8 validation errors for ValidatorIterator\n0.ChatCompletionContentPartTextParam.text\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartTextParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.image_url\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.input_audio\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.file\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing None", 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:05:51.482 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 227, in <module>
+    response = local_gemma3n_image(st.session_state.messages, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 971, in local_gemma3n_image
+    chat_response = client.chat.completions.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': "8 validation errors for ValidatorIterator\n0.ChatCompletionContentPartTextParam.text\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartTextParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.image_url\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.input_audio\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.file\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing None", 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-08-06 01:06:35.864 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/home.py", line 231, in <module>
+    response = local_gemma3n_image(st.session_state.messages, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/configs/utility.py", line 971, in local_gemma3n_image
+    chat_response = client.chat.completions.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_utils/_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/resources/chat/completions.py", line 815, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 954, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/openai/_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'object': 'error', 'message': "8 validation errors for ValidatorIterator\n0.ChatCompletionContentPartTextParam.text\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartTextParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.image_url\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartImageParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.input_audio\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.ChatCompletionContentPartInputAudioParam.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.file\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\n0.File.type\n  Field required [type=missing, input_value={'role': 'system', 'conte...rately and truthfully.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing None", 'type': 'BadRequestError', 'param': None, 'code': 400}
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:7869
+  Network URL: http://172.31.11.95:7869
+  External URL: http://44.229.65.238:7869
+
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:7868
+  Network URL: http://172.31.11.95:7868
+  External URL: http://44.229.65.238:7868
+
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2;33m/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scrip[0m [31m [0m
+[31m [0m [2;33mtrunner/[0m[1;33mexec_code.py[0m:[94m128[0m in [92mexec_func_with_error_handling[0m                            [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scrip[0m [31m [0m
+[31m [0m [2;33mtrunner/[0m[1;33mscript_runner.py[0m:[94m669[0m in [92mcode_to_exec[0m                                         [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/[0m[1;33mhome.py[0m:[94m187[0m in [92m<module>[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m184 [0m                                                                               [31m [0m
+[31m [0m   [2m185 [0m[94mif[0m prompt := st.chat_input():                                                  [31m [0m
+[31m [0m   [2m186 [0m[2m│   [0m[2m# Override query with voice prompt[0m                                         [31m [0m
+[31m [0m [31m❱ [0m187 [2m│   [0m[2m# if len([0m[1;2;4mvoice_prompt) > 3[0m[2m:[0m                                                [31m [0m
+[31m [0m   [2m188 [0m[2m│   [0m[2m#     prompt = voice_prompt[0m                                                [31m [0m
+[31m [0m   [2m189 [0m[2m│   [0m                                                                           [31m [0m
+[31m [0m   [2m190 [0m[2m│   [0m[2m# Add relevant files to message content[0m                                    [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mTypeError: [0munsupported operand [1;35mtype[0m[1m([0ms[1m)[0m for +: [32m'bool'[0m and [32m'str'[0m
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2;33m/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scrip[0m [31m [0m
+[31m [0m [2;33mtrunner/[0m[1;33mexec_code.py[0m:[94m128[0m in [92mexec_func_with_error_handling[0m                            [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scrip[0m [31m [0m
+[31m [0m [2;33mtrunner/[0m[1;33mscript_runner.py[0m:[94m669[0m in [92mcode_to_exec[0m                                         [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/[0m[1;33mhome.py[0m:[94m187[0m in [92m<module>[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m184 [0m                                                                               [31m [0m
+[31m [0m   [2m185 [0m[94mif[0m prompt := st.chat_input() [95mor[0m [96mlen[0m(voice_prompt) > [94m3[0m:                         [31m [0m
+[31m [0m   [2m186 [0m[2m│   [0mprompt_flag = prompt [95mis[0m [96mstr[0m                                                [31m [0m
+[31m [0m [31m❱ [0m187 [2m│   [0mst.write([1;4mprompt_flag + [0m[1;4;33m"[0m[1;4;33m|[0m[1;4;33m"[0m[1;4m + prompt)[0m                                       [31m [0m
+[31m [0m   [2m188 [0m[2m│   [0m[2m# Override query with voice prompt[0m                                         [31m [0m
+[31m [0m   [2m189 [0m[2m│   [0m[94mif[0m [96mlen[0m(voice_prompt) > [94m3[0m:                                                  [31m [0m
+[31m [0m   [2m190 [0m[2m│   │   [0mprompt = voice_prompt                                                  [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mTypeError: [0mcan only concatenate str [1m([0mnot [32m"type"[0m[1m)[0m to str
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2;33m/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scrip[0m [31m [0m
+[31m [0m [2;33mtrunner/[0m[1;33mexec_code.py[0m:[94m128[0m in [92mexec_func_with_error_handling[0m                            [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/home/aaron/.conda/envs/dev3-11/lib/python3.11/site-packages/streamlit/runtime/scrip[0m [31m [0m
+[31m [0m [2;33mtrunner/[0m[1;33mscript_runner.py[0m:[94m669[0m in [92mcode_to_exec[0m                                         [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/home/aaron/src/first-aid/demo/kaggle-gemma-3n-challenge/[0m[1;33mhome.py[0m:[94m187[0m in [92m<module>[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m184 [0m                                                                               [31m [0m
+[31m [0m   [2m185 [0m[94mif[0m prompt := st.chat_input() [95mor[0m [96mlen[0m(voice_prompt) > [94m3[0m:                         [31m [0m
+[31m [0m   [2m186 [0m[2m│   [0mprompt_flag = prompt [95mis[0m [96mstr[0m                                                [31m [0m
+[31m [0m [31m❱ [0m187 [2m│   [0mst.write([1;4;96mstr[0m[1;4m(prompt_flag) + [0m[1;4;33m"[0m[1;4;33m|[0m[1;4;33m"[0m[1;4m + prompt[0m + [33m"[0m[33m|[0m[33m"[0m + [96mtype[0m(prompt))             [31m [0m
+[31m [0m   [2m188 [0m[2m│   [0m[2m# Override query with voice prompt[0m                                         [31m [0m
+[31m [0m   [2m189 [0m[2m│   [0m[94mif[0m [96mlen[0m(voice_prompt) > [94m3[0m:                                                  [31m [0m
+[31m [0m   [2m190 [0m[2m│   │   [0mprompt = voice_prompt                                                  [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mTypeError: [0mcan only concatenate str [1m([0mnot [32m"bool"[0m[1m)[0m to str
