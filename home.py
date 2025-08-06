@@ -2,6 +2,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 import re
 import logging
+import io
+import time
 from utility import *
 from openai import OpenAI
 from base64 import b64encode
@@ -186,6 +188,7 @@ if prompt := st.chat_input() or len(voice_prompt) > 3:
     with_files = False
     for entry in os.listdir(input_file_path):
         entry_abspath = os.path.join(input_file_path, entry)
+        file_type = None
 
         # Get file as bytes
         with open(entry_abspath, "rb") as file:
@@ -197,11 +200,15 @@ if prompt := st.chat_input() or len(voice_prompt) > 3:
             file_contents = {"url": f"data:image/jpeg;base64,{file_bytes}"}
         elif "audio" in entry:
             # Get file extension
-            _, extension = os.path.splitext(file_abspath)
+            _, extension = os.path.splitext(entry_abspath)
             extension = extension[1:]
             
             file_type = "input_audio"
             file_contents = {"data": file_bytes, "format": extension}
+
+        # Abort for invalid files
+        if file_type is None:
+            continue
 
         # Add message content based on file type
         message_content.append({"type": file_type, file_type: file_contents})
