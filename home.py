@@ -11,8 +11,7 @@ import time
 import logging
 from streamlit_pdf_viewer import pdf_viewer
 from configs.utility import *
-from configs.utils import *
-from configs.video_captioning import get_asr
+from openai import OpenAI
 
 file_path = os.path.dirname(__file__)
 input_file_path = os.path.join(file_path, "input-files")
@@ -35,7 +34,7 @@ input_image_file = "input_image"
 input_audio_file = "input_audio"
 query_audio_file = "query_audio.wav"
 last_uploaded_files = None
-model_id = 'gemma-3N-finetune'
+model_id = 'alfredcs/gemma-3N-finetune'
 
 st.set_page_config(page_title="Gemma-3N", page_icon="🩺", layout="wide")
 st.title("Personal assistant")
@@ -203,9 +202,10 @@ if prompt := st.chat_input():
         max_tokens=max_tokens,
         top_p=top_p
     )
-    usages = f'Completion_tokens: {response.usage.completion_tokens}, Prompt_tokens: {response.usage.prompt_tokens}, Total_tokens:{response.usage.total_tokens}'
+    usages = f'Completion Tokens: {response.usage.completion_tokens}, Prompt Tokens: {response.usage.prompt_tokens}, Total Tokens:{response.usage.total_tokens}'
 
     # Display text and save to messages
+    response = response.choices[0].message.content
     response_formatted = f"{response}\n\n ✒︎***Content created by using:*** {model_id}, Latency: {(time.time() - start_time) * 1000:.2f} ms, {usages}"
     st.session_state.messages.append({"role": "assistant", "content": response_formatted})
     st.chat_message("ai", avatar='🤵').write(response_formatted)
