@@ -1,1 +1,4 @@
-openai
+streamlit
+pillow
+numpy
+streamlit_pdf_viewer
