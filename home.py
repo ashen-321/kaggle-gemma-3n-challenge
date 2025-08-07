@@ -12,7 +12,6 @@ file_path = os.path.dirname(__file__)
 input_file_path = os.path.join(file_path, "input-files")
 voice_prompt = ''
 tokens = 0
-audio_extensions = [".mp3", ".wav"]
 image_extensions = [".jpg", ".jpeg", ".png", ".webp"]
 
 os.environ["OPENAI_API_KEY"] = "EMPTY"
@@ -26,7 +25,6 @@ os.environ["OPENAI_BASE_URL"] = "http://video.cavatar.info:8087/v1"
 aoss_host = read_key_value(".aoss_config.txt", "AOSS_host_name")
 aoss_index = read_key_value(".aoss_config.txt", "AOSS_index_name")
 input_image_file = "input_image"
-input_audio_file = "input_audio"
 query_audio_file = "query_audio.wav"
 last_uploaded_files = None
 model_id = 'alfredcs/gemma-3N-finetune'
@@ -84,13 +82,11 @@ with st.sidebar:
     st.header(':green[Settings]')
 
     # File upload box
-    upload_file = st.file_uploader("Upload your image/audio here:", accept_multiple_files=True,
-                                   type=["jpg", "jpeg", "png", "webp", "mp3", "wav"])
+    upload_file = st.file_uploader("Upload your images here:", accept_multiple_files=True, type=["jpg", "jpeg", "png", "webp"])
 
     # Only update input file directory if something has changed
     if upload_file != last_uploaded_files:
         # File saving
-        audio_file_indexes = []
         image_file_indexes = []
 
         # Clear input file directory
@@ -101,23 +97,10 @@ with st.sidebar:
             for i in range(len(upload_file)):
                 _, upload_file_extension = os.path.splitext(upload_file[i].name)
 
-                if upload_file_extension in audio_extensions:
-                    audio_file_indexes.append(i)
-
-                elif upload_file_extension in image_extensions:
+                if upload_file_extension in image_extensions:
                     image_file_indexes.append(i)
 
         # Read file indexes and save accordingly
-        # Audio upload
-        for i in range(len(audio_file_indexes)):
-            index = audio_file_indexes[i]
-            audio_bytes = upload_file[index].read()
-            st.audio(audio_bytes, format="audio/wav")
-
-            input_file = os.path.join(input_file_path, input_audio_file + f"_{i}" + upload_file_extension)
-            with open(input_file, 'wb') as audio_file:
-                audio_file.write(audio_bytes)
-
         # Image upload
         for i in range(len(image_file_indexes)):
             index = image_file_indexes[i]
